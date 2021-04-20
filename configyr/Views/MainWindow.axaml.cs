@@ -1,10 +1,14 @@
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using configyr.ViewModels;
+using Avalonia.ReactiveUI;
+using ReactiveUI;
 
 namespace configyr.Views
 {
-    public class MainWindow : Window
+    public class MainWindow : ReactiveWindow<MainWindowViewModel>
     {
         public MainWindow()
         {
@@ -12,6 +16,16 @@ namespace configyr.Views
 #if DEBUG
             this.AttachDevTools();
 #endif
+            this.WhenActivated(d => d(ViewModel.ShowNewProjectDialog.RegisterHandler(DoShowDialogAsync)));
+        }
+
+        private async Task DoShowDialogAsync(InteractionContext<ProjectManagerViewModel, NewProjectWindowViewModel?> interaction)
+        {
+            var dialog = new NewProjectWindow();
+            dialog.DataContext = interaction.Input;
+
+            var result = await dialog.ShowDialog<NewProjectWindowViewModel?>(this);
+            interaction.SetOutput(result);
         }
 
         private void InitializeComponent()
