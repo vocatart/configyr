@@ -1,15 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reactive.Concurrency;
+using System.Reactive.Linq;
+using System.Windows.Input;
 using ReactiveUI;
 
 namespace configyr.ViewModels
 {
     public class ProjectManagerViewModel : ViewModelBase
     {
-        private string? extension;
+
+        public ProjectManagerViewModel()
+        {
+            ProjectType = ReactiveCommand.CreateFromTask(async () =>
+            {
+                // get project type
+                // 1 - .cfgyr (Configyr Project File)
+
+                int projectTypeFromCombo;
+            });
+        }
+
         private string? _projectName;
 
         public string? ProjectName
@@ -18,11 +30,9 @@ namespace configyr.ViewModels
             set => this.RaiseAndSetIfChanged(ref _projectName, value);
         }
 
-        public string? FullProjectName
-        {
-            get => _projectName;
-            set => this.RaiseAndSetIfChanged(ref _projectName, value + ".cfgyr");
-        }
+        public ICommand ProjectType { get; }
+
+        public string configyrProject = ".cfgyr (Configyr Project FIle)";
     }
 
 }
