@@ -31,8 +31,7 @@
       </ExperimentalAcrylicBorder.Material>
     </ExperimentalAcrylicBorder>
 
-    <Panel Margin="40">
-
-    </Panel>
+    <!-- views -->
+    <views:NewProjectView/>
   </Panel>
 </Window>
