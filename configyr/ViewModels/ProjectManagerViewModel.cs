@@ -11,11 +11,11 @@ namespace configyr.ViewModels
     public class ProjectManagerViewModel : ViewModelBase
     {
 
+        private string? _projectName;
+
         public ProjectManagerViewModel()
         {
         }
-
-        private string? _projectName;
 
         public string? ProjectName
         {
