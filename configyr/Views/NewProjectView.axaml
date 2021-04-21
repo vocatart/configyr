@@ -11,14 +11,8 @@
       <TextBox Text="{Binding ProjectName}" Watermark="Enter Project Name..." Margin="10"/>
       <DockPanel>
         <TextBlock Text="{Binding ProjectName}" HorizontalAlignment="Left" FontWeight="SemiLight" DockPanel.Dock="Left"/>
-        <TextBlock Text="test" HorizontalAlignment="Left" FontWeight="SemiLight"/>
+        <TextBlock Text="{Binding FullProjectName}" HorizontalAlignment="Left" FontWeight="SemiLight"/>
       </DockPanel>
-      <ComboBox SelectedIndex="0">
-        <!-- project types-->
-        <!-- only .cfgyr at the moment, will add support for setparam-style later (no project file, just editing oto)-->
-        <ComboBoxItem>Select Project Type</ComboBoxItem>
-        <ComboBoxItem>.cfgyr (Configure Project File)</ComboBoxItem>
-      </ComboBox>
     </StackPanel>
   </DockPanel>
 </UserControl>

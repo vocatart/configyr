@@ -13,13 +13,6 @@ namespace configyr.ViewModels
 
         public ProjectManagerViewModel()
         {
-            ProjectType = ReactiveCommand.CreateFromTask(async () =>
-            {
-                // get project type
-                // 1 - .cfgyr (Configyr Project File)
-
-                int projectTypeFromCombo;
-            });
         }
 
         private string? _projectName;
@@ -29,10 +22,5 @@ namespace configyr.ViewModels
             get => _projectName;
             set => this.RaiseAndSetIfChanged(ref _projectName, value);
         }
-
-        public ICommand ProjectType { get; }
-
-        public string configyrProject = ".cfgyr (Configyr Project FIle)";
     }
-
 }
