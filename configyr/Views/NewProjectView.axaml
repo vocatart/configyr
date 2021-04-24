@@ -13,6 +13,19 @@
         <TextBlock Text="{Binding ProjectName}" HorizontalAlignment="Left" FontWeight="SemiLight" DockPanel.Dock="Left"/>
         <TextBlock Text="{Binding FullProjectName}" HorizontalAlignment="Left" FontWeight="SemiLight"/>
       </DockPanel>
+      <DockPanel>
+        <Button Content="Browse..." HorizontalAlignment="Left" Margin="5"/> 
+        <TextBox Text="{Binding ProjectPath}" Watermark="Select Project Directory..." Margin="5"/>
+      </DockPanel>
+      <DockPanel>
+        <Button Content="Browse..." HorizontalAlignment="Left" Margin="5"/>
+        <TextBox Text="{Binding VoicebankPath}" Watermark="Select Voicebank Directory..." Margin="5"/>
+      </DockPanel>
+      <DockPanel>
+        <Button Content="Browse..." HorizontalAlignment="Left" Margin="5"/>
+        <TextBox Text="{Binding ParamFilePath}" Watermark="Select Parameter File..." Margin="5"/>
+      </DockPanel>
+      <Button Content="Create Project" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="50"/>
     </StackPanel>
   </DockPanel>
 </UserControl>
