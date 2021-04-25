@@ -8,9 +8,9 @@
              mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="500"
              x:Class="configyr.Views.ProjectManager">
 
-  <Panel Margin="40">
-    <!-- buttons --> 
-    <Button Content="Create New Project" Command="{Binding CreateProject}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-    <Button Content="Open Project" Command="{Binding OpenProject}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-  </Panel>
+  <StackPanel>
+    <TextBlock Text="configyr" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" FontWeight="SemiLight" Margin="50"/>
+    <Button Content="Create New Project" Command="{Binding CreateProject}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
+    <Button Content="Open Project" Command="{Binding OpenProject}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
+  </StackPanel>
 </UserControl>
