@@ -1,3 +1,5 @@
+<!-- Project Manager for Configyr -->
+
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -14,18 +16,18 @@
         <TextBlock Text="{Binding FullProjectName}" HorizontalAlignment="Left" FontWeight="SemiLight"/>
       </DockPanel>
       <DockPanel>
-        <Button Content="Browse..." HorizontalAlignment="Left" Margin="5"/> 
+        <Button Content="Browse..." Command="{Binding BrowseProjectPath}" HorizontalAlignment="Left" Margin="5"/> 
         <TextBox Text="{Binding ProjectPath}" Watermark="Select Project Directory..." Margin="5"/>
       </DockPanel>
       <DockPanel>
-        <Button Content="Browse..." HorizontalAlignment="Left" Margin="5"/>
+        <Button Content="Browse..." Command="{Binding BrowseVoicebankPath}" HorizontalAlignment="Left" Margin="5"/>
         <TextBox Text="{Binding VoicebankPath}" Watermark="Select Voicebank Directory..." Margin="5"/>
       </DockPanel>
       <DockPanel>
-        <Button Content="Browse..." HorizontalAlignment="Left" Margin="5"/>
+        <Button Content="Browse..." Command="{Binding BrowseParamFilePath}" HorizontalAlignment="Left" Margin="5"/>
         <TextBox Text="{Binding ParamFilePath}" Watermark="Select Parameter File..." Margin="5"/>
       </DockPanel>
-      <Button Content="Create Project" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="50"/>
+      <Button Content="Create Project" Command="{Binding CreateProject}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="50"/>
     </StackPanel>
   </DockPanel>
 </UserControl>

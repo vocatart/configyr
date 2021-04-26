@@ -19,7 +19,29 @@ namespace configyr.ViewModels
 
         public ProjectManagerViewModel()
         {
+            BrowseProjectPath = ReactiveCommand.Create(() =>
+            {
+                // get project path from a dialog
+                var fileContent = string.Empty;
+                var filePath = string.Empty;
+
+                
+            });
+
+            BrowseVoicebankPath = ReactiveCommand.Create(() =>
+            {
+                // get voicebank path from a dialog
+            });
+
+            BrowseParamFilePath = ReactiveCommand.Create(() =>
+            {
+                // get parameter file path from dialog
+            });
         }
+
+        public ICommand BrowseProjectPath { get; }
+        public ICommand BrowseVoicebankPath { get; }
+        public ICommand BrowseParamFilePath { get; }
 
         public string? ProjectName
         {

@@ -19,6 +19,7 @@ namespace configyr.Views
             this.WhenActivated(d => d(ViewModel.ShowNewProjectDialog.RegisterHandler(DoShowDialogAsync)));
         }
 
+        // async
         private async Task DoShowDialogAsync(InteractionContext<ProjectManagerViewModel, NewProjectWindowViewModel?> interaction)
         {
             var dialog = new NewProjectWindow();
