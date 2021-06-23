@@ -1,0 +1,28 @@
+<!-- Waveform Viewer for configyr -->
+
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:configyr.Views"
+             xmlns:vm="using:configyr.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             Width="1500" Height="350"
+             x:Class="configyr.Views.WaveformWindow">
+
+  <Panel>
+    <!-- background -->
+    <ExperimentalAcrylicBorder IsHitTestVisible="False">
+      <ExperimentalAcrylicBorder.Material>
+        <ExperimentalAcrylicMaterial
+          BackgroundSource="Digger"
+          TintColor="White"
+          TintOpacity="1"
+          MaterialOpacity="0.65"/>
+      </ExperimentalAcrylicBorder.Material>
+    </ExperimentalAcrylicBorder>
+
+    <!-- views -->
+    <views:WaveformView/>
+  </Panel>
+</UserControl>
