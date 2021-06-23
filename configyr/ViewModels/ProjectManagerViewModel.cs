@@ -18,7 +18,6 @@ using Avalonia.Layout;
 using Avalonia.ReactiveUI;
 using Avalonia.Dialogs;
 using System.Reactive;
-using System.Reactive.Linq;
 
 namespace configyr.ViewModels
 {
@@ -40,16 +39,20 @@ namespace configyr.ViewModels
 
         public ProjectManagerViewModel()
         {
+            // Interactions for file and folder dialogs
             ShowOpenFolderDialog = new Interaction<Unit, string?>();
-
             ShowOpenFileDialog = new Interaction<Unit, string?>();
 
+            // Get voicebank path from dialog
             BrowseVoicebankPath = ReactiveCommand.CreateFromTask(VoicebankPathDialog);
 
+            // Get project path from dialog. Inherits from VoicebankPath
             BrowseProjectPath = ReactiveCommand.CreateFromTask(ProjectPathDialog);
 
+            // Get parameter file path from dialog. Inherits from VoicebankPath + parameter file string
             BrowseParamFilePath = ReactiveCommand.CreateFromTask(ParamFileDialog);
 
+            // Create project logic
             CreateProject = ReactiveCommand.Create(() =>
             {
                 /*---------------------------
@@ -102,6 +105,8 @@ namespace configyr.ViewModels
             if (result is object)
             {
                 VoicebankPath = result;
+
+                ParamFilePath = VoicebankPath + "\\oto.ini";
             }
         }
 
@@ -113,7 +118,7 @@ namespace configyr.ViewModels
             {
                 ProjectPath = VoicebankPath = result;
 
-                ParamFilePath = result + "\\oto.ini";
+                ParamFilePath = VoicebankPath + "\\oto.ini";
             }
         }
 
