@@ -48,7 +48,9 @@ namespace configyr.ViewModels
 
                 // Open waveform and parameter windows
                 var waveformWindow = new configyr.Views.WaveformWindow();
+                var parameterWindow = new configyr.Views.ParameterWindow();
 
+                parameterWindow.Show();
                 waveformWindow.Show();
             }
         }

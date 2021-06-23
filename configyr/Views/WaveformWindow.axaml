@@ -8,7 +8,11 @@
              xmlns:vm="using:configyr.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              Width="1500" Height="350"
-             x:Class="configyr.Views.WaveformWindow">
+             TransparencyLevelHint="AcrylicBlur"
+             Background="Transparent"
+             ExtendClientAreaToDecorationsHint="False"
+             x:Class="configyr.Views.WaveformWindow"
+             Title="configyr - Waveform Editor">
 
   <Panel>
     <!-- background -->
