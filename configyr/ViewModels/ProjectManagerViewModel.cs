@@ -9,9 +9,20 @@ using ReactiveUI;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Threading;
+using Avalonia.Controls;
+using Avalonia.Input;
+using Avalonia.Interactivity;
+using Avalonia.Layout;
+using Avalonia.ReactiveUI;
+using Avalonia.Dialogs;
+using System.Reactive;
+using System.Reactive.Linq;
 
 namespace configyr.ViewModels
 {
+
     public class FileData
     {
         public string version { get; set; }
@@ -29,20 +40,9 @@ namespace configyr.ViewModels
 
         public ProjectManagerViewModel()
         {
-            BrowseProjectPath = ReactiveCommand.Create(() =>
-            {
-                // get project path from a dialog
-            });
+            ShowOpenFolderDialog = new Interaction<Unit, string?>();
 
-            BrowseVoicebankPath = ReactiveCommand.Create(() =>
-            {
-                // get voicebank path from a dialog
-            });
-
-            BrowseParamFilePath = ReactiveCommand.Create(() =>
-            {
-                // get parameter file path from dialog
-            });
+            BrowseVoicebankPath = ReactiveCommand.CreateFromTask(OpenFolderAsync);
 
             CreateProject = ReactiveCommand.Create(() =>
             {
@@ -89,9 +89,18 @@ namespace configyr.ViewModels
             });
         }
 
-        public ICommand BrowseProjectPath { get; }
-        public ICommand BrowseVoicebankPath { get; }
-        public ICommand BrowseParamFilePath { get; }
+        private async Task OpenFolderAsync()
+        {
+            var result = await ShowOpenFolderDialog.Handle(Unit.Default);
+
+            if (result is object)
+            {
+                VoicebankPath = result;
+            }
+        }
+
+        public Interaction<Unit, string?> ShowOpenFolderDialog { get; }
+        public ReactiveCommand<Unit, Unit> BrowseVoicebankPath { get; }
         public ICommand CreateProject { get; }
 
         public string? ProjectName
