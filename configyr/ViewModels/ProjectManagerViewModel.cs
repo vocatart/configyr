@@ -91,7 +91,7 @@ namespace configyr.ViewModels
                     });
 
                     string json = JsonSerializer.Serialize(_fileData, serializerOptions);
-                    File.WriteAllText(ProjectName + ".cfgyr", json);
+                    File.WriteAllText(ProjectPath + "\\" + ProjectName + ".cfgyr", json);
 
                     successfulBox.Show();
                 }
