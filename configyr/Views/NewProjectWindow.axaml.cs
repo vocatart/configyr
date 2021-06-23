@@ -49,6 +49,7 @@ namespace configyr.Views
                     Name = "UTAU Parameter File",
                     Extensions = {"ini"}
                 });
+            dialog.AllowMultiple = false;
 
             var result = await dialog.ShowAsync(this);
             interaction.SetOutput(result.FirstOrDefault());
