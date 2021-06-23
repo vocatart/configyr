@@ -19,8 +19,11 @@ namespace configyr.Views
 #if DEBUG
             this.AttachDevTools();
 #endif
-            // When the window is activated, registers a handler for the ShowOpenFileDialog interaction.
+            // When the window is activated, registers a handler for the ShowOpenFolderDialog interaction.
             this.WhenActivated(d => d(ViewModel.ShowOpenFolderDialog.RegisterHandler(ShowOpenFolderDialog)));
+
+            // When the window is activated, registers a handler for the ShowOpenFileDialog interaction.
+            this.WhenActivated(d => d(ViewModel.ShowOpenFileDialog.RegisterHandler(ShowOpenFileDialog)));
         }
 
         private void InitializeComponent()
@@ -33,6 +36,22 @@ namespace configyr.Views
             var dialog = new OpenFolderDialog();
             var result = await dialog.ShowAsync(this);
             interaction.SetOutput(result);
+        }
+
+        private async Task ShowOpenFileDialog(InteractionContext<Unit, string?> interaction)
+        {
+            var dialog = new OpenFileDialog();
+
+            // Param file filter. UTAU only for now
+            dialog.Filters.Add(
+                new FileDialogFilter()
+                {
+                    Name = "UTAU Parameter File",
+                    Extensions = {"ini"}
+                });
+
+            var result = await dialog.ShowAsync(this);
+            interaction.SetOutput(result.FirstOrDefault());
         }
     }
 }

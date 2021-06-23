@@ -42,7 +42,13 @@ namespace configyr.ViewModels
         {
             ShowOpenFolderDialog = new Interaction<Unit, string?>();
 
-            BrowseVoicebankPath = ReactiveCommand.CreateFromTask(OpenFolderAsync);
+            ShowOpenFileDialog = new Interaction<Unit, string?>();
+
+            BrowseVoicebankPath = ReactiveCommand.CreateFromTask(VoicebankPathDialog);
+
+            BrowseProjectPath = ReactiveCommand.CreateFromTask(ProjectPathDialog);
+
+            BrowseParamFilePath = ReactiveCommand.CreateFromTask(ParamFileDialog);
 
             CreateProject = ReactiveCommand.Create(() =>
             {
@@ -89,7 +95,7 @@ namespace configyr.ViewModels
             });
         }
 
-        private async Task OpenFolderAsync()
+        private async Task VoicebankPathDialog()
         {
             var result = await ShowOpenFolderDialog.Handle(Unit.Default);
 
@@ -99,8 +105,33 @@ namespace configyr.ViewModels
             }
         }
 
+        private async Task ProjectPathDialog()
+        {
+            var result = await ShowOpenFolderDialog.Handle(Unit.Default);
+
+            if (result is object)
+            {
+                ProjectPath = VoicebankPath = result;
+
+                ParamFilePath = result + "\\oto.ini";
+            }
+        }
+
+        private async Task ParamFileDialog()
+        {
+            var result = await ShowOpenFileDialog.Handle(Unit.Default);
+
+            if (result is object)
+            {
+                ParamFilePath = result;
+            }
+        }
+
+        public Interaction<Unit, string?> ShowOpenFileDialog { get; }
         public Interaction<Unit, string?> ShowOpenFolderDialog { get; }
         public ReactiveCommand<Unit, Unit> BrowseVoicebankPath { get; }
+        public ReactiveCommand<Unit, Unit> BrowseProjectPath { get; }
+        public ReactiveCommand<Unit, Unit> BrowseParamFilePath { get; }
         public ICommand CreateProject { get; }
 
         public string? ProjectName
