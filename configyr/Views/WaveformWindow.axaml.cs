@@ -4,7 +4,7 @@ using Avalonia.Markup.Xaml;
 
 namespace configyr.Views
 {
-    public partial class WaveformWindow : Window
+    public partial class WaveformWindow : Window, IView
     {
         public WaveformWindow()
         {
