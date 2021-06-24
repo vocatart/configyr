@@ -24,10 +24,10 @@ namespace configyr.ViewModels
 
     public class FileData
     {
-        public string version { get; set; }
-        public string projectName { get; set; }
-        public string voicebankPath { get; set; }
-        public string paramFilePath { get; set; }
+        public string? version { get; set; }
+        public string? projectName { get; set; }
+        public string? voicebankPath { get; set; }
+        public string? paramFilePath { get; set; }
     }
     public class ProjectManagerViewModel : ViewModelBase
     {
