@@ -1,22 +1,11 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using System.Windows.Input;
 using System.IO;
 using ReactiveUI;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Threading;
-using Avalonia.Controls;
-using Avalonia.Input;
-using Avalonia.Interactivity;
-using Avalonia.Layout;
-using Avalonia.ReactiveUI;
-using Avalonia.Dialogs;
 using System.Reactive;
 
 namespace configyr.ViewModels
