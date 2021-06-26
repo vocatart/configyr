@@ -15,5 +15,6 @@ namespace configyr.Views
         {
             AvaloniaXamlLoader.Load(this);
         }
+
     }
 }

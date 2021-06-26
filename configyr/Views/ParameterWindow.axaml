@@ -1,16 +1,22 @@
+<!-- Project Manager for Configyr -->
+
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        Width="400" Height="500"
-        x:Class="configyr.Views.ParameterWindow"
         xmlns:views="clr-namespace:configyr.Views"
         xmlns:vm="using:configyr.ViewModels"
+        x:Class="configyr.Views.ParameterWindow"
+        Icon="/Assets/betterbetter.ico"
+        Width="600" Height="500"
+        Title="ParameterWindow"
         TransparencyLevelHint="AcrylicBlur"
         Background="Transparent"
-        ExtendClientAreaToDecorationsHint="False"
-        Title="ParameterWindow">
+        ExtendClientAreaToDecorationsHint="False">
+
+  <Design.DataContext>
+    <vm:ParameterViewModel/>
+  </Design.DataContext>
 
   <Panel>
     <!-- background -->
@@ -23,8 +29,9 @@
           MaterialOpacity="0.65"/>
       </ExperimentalAcrylicBorder.Material>
     </ExperimentalAcrylicBorder>
-    
+
     <!-- views -->
     <views:ParameterView/>
   </Panel>
+
 </Window>

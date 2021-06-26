@@ -43,7 +43,7 @@ namespace configyr.ViewModels
             if (result is object)
             {
                 // Get target file
-                // This file will be deserialized in WaveformWindow and DefaultParameterWindow
+                // This file will be deserialized in WaveformWindow and ParameterWindow
                 TargetFile = result;
 
                 // Open waveform and parameter windows
