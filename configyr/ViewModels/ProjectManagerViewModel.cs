@@ -63,16 +63,15 @@ namespace configyr.ViewModels
                 }
                 else
                 {
-                    List<FileData> _fileData = new List<FileData>();
-                    _fileData.Add(new FileData()
+                    var fileData = new FileData
                     {
                         version = "0.1.0",
                         projectName = ProjectName,
                         voicebankPath = VoicebankPath,
                         paramFilePath = ParamFilePath
-                    });
+                    };
 
-                    string json = JsonSerializer.Serialize(_fileData, serializerOptions);
+                    string json = JsonSerializer.Serialize(fileData, serializerOptions);
                     File.WriteAllText(ProjectPath + "\\" + ProjectName + ".cfgyr", json);
 
                     successfulBox.Show();
