@@ -29,10 +29,20 @@ namespace configyr.ViewModels
             // Get target file
             MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
             string TargetFile = mainWindowViewModel.TargetFile;
-            FileData fileData = JsonSerializer.Deserialize<FileData>(TargetFile);
 
             // Deserialize project file
-            string jsonString = File.ReadAllText(TargetFile);
+            if (TargetFile == null)
+            {
+                var exceptionBox = MessageBox.Avalonia.MessageBoxManager
+                .GetMessageBoxStandardWindow("Error", "Cannot read file");
+
+                exceptionBox.Show();
+            }
+            else
+            {
+                string jsonString = File.ReadAllText(TargetFile);
+                FileData fileData = JsonSerializer.Deserialize<FileData>(jsonString);
+            }
 
             var tableParams = new List<UTAUParameterEntry>()
             {

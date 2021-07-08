@@ -1,5 +1,5 @@
 {
-  "version": "0.1.1",
+  "version": "0.1.0",
   "projectName": "utau_test",
   "voicebankPath": "C:\\Users\\conem\\Documents\\GitHub\\configyr\\configyrTests\\UTAU",
   "paramFilePath": "C:\\Users\\conem\\Documents\\GitHub\\configyr\\configyrTests\\UTAU\\oto.ini"

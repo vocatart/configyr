@@ -36,7 +36,7 @@ namespace configyr.ViewModels
 
             OpenProject = ReactiveCommand.CreateFromTask(ProjectFileDialog);
         }
-        public async Task ProjectFileDialog()
+        public async Task<string> ProjectFileDialog()
         {
             var result = await ShowOpenFileDialog.Handle(Unit.Default);
 
@@ -56,6 +56,7 @@ namespace configyr.ViewModels
                 parameterWindow.Show();
                 waveformWindow.Show();
             }
+            return TargetFile;
         }
 
         public ICommand CreateProject { get; }

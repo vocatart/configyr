@@ -11,6 +11,7 @@
   </Design.DataContext>
 
   <StackPanel>
+    <Label Content="{Binding TargetFileName}"/>
     <DataGrid AutoGenerateColumns="True" Items="{Binding UTAUParameterEntry}"/>
   </StackPanel>
 
