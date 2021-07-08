@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using configyr.Models;
+using configyr.ViewModels;
 using System.Collections.ObjectModel;
+using System.IO;
 
 namespace configyr.ViewModels
 {
@@ -16,13 +18,27 @@ namespace configyr.ViewModels
 
         public ParameterViewModel()
         {
+            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
+            string TargetFile = mainWindowViewModel.TargetFile;
+
             UTAUParameterEntry = new ObservableCollection<UTAUParameterEntry>(GenerateParameterTable());
         }
 
         public IEnumerable<UTAUParameterEntry> GenerateParameterTable()
         {
+            // Get target file
+            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
+            string TargetFile = mainWindowViewModel.TargetFile;
+            FileData fileData = JsonSerializer.Deserialize<FileData>(TargetFile);
+
+            // Deserialize project file
+            string jsonString = File.ReadAllText(TargetFile);
+
             var tableParams = new List<UTAUParameterEntry>()
             {
+                // Example parameter entry
+
+                /*
                 new UTAUParameterEntry()
                 {
                     File = "test",
@@ -33,6 +49,7 @@ namespace configyr.ViewModels
                     Cutoff = "500",
                     Alias = "ka"
                 }
+                */
             };
             return tableParams;
         }

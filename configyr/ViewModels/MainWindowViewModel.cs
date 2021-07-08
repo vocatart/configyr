@@ -50,6 +50,9 @@ namespace configyr.ViewModels
                 var waveformWindow = new configyr.Views.WaveformWindow();
                 var parameterWindow = new configyr.Views.ParameterWindow();
 
+                parameterWindow.DataContext = new configyr.ViewModels.ParameterViewModel();
+                waveformWindow.DataContext = new configyr.ViewModels.WaveformViewModel();
+
                 parameterWindow.Show();
                 waveformWindow.Show();
             }
