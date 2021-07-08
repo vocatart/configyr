@@ -6,6 +6,10 @@
              mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="500"
              x:Class="configyr.Views.ParameterView">
 
+  <Design.DataContext>
+    <vm:ParameterViewModel/>
+  </Design.DataContext>
+
   <StackPanel>
     <DataGrid AutoGenerateColumns="True" Items="{Binding UTAUParameterEntry}"/>
   </StackPanel>
