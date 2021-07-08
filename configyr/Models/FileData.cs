@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace configyr.Models
+﻿namespace configyr.Models
 {
-    class Class1
+    class FileData
     {
+        public string? version { get; set; }
+        public string? projectName { get; set; }
+        public string? voicebankPath { get; set; }
+        public string? paramFilePath { get; set; }
     }
 }
